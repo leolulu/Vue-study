@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+	<style type="text/css">
+		.testclass{
+			width: 500px;
+		}
+		button{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<mybuton :fathernum='fathernum' class="testclass"></mybuton>
+		<mybuton :fathernum='fathernum' ></mybuton>
+		<mybuton></mybuton>
+	</div>
+	<script type="text/javascript">
+		Vue.component('mybuton',{
+			props:['fathernum'],
+			template:`<button @click="af">{{fathernum}}</button>`,
+			methods:{
+				af:function(){
+					fathernum += 1;
+				}
+			}
+		})
+
+		const app = new Vue({
+			el:"#app",
+			data:{
+				fathernum:12
+			}
+		})
+	</script>
+</body>
+</html>

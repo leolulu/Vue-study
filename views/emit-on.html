@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<upbutton @myalart="fatehradd"></upbutton>
+		<upbutton @myalart="fatehradd"></upbutton>
+		<upbutton @myalart="fatehradd"></upbutton>
+		<p>{{fathernum}}</p>
+	</div>
+	<script type="text/javascript">
+		Vue.component('upbutton',{
+			data:function(){
+				return {
+					localconter: 0
+				}
+			},
+			methods:{
+				localupter:function(){
+					this.localconter += 1;
+					this.$emit('myalart')
+				}
+			},
+			template:`
+			<button v-on:click="localupter">已经点击了{{localconter}}次</button>
+			`
+		})
+
+		const app = new Vue({
+			el:'#app',
+			data:{
+				fathernum:0
+			},
+			methods:{
+				fatehradd:function(){
+					this.fathernum += 1;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

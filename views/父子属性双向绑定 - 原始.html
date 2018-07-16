@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<t-text :message='message' v-on:update:message="message = $event"></t-text>
+		<p>{{message}}</p>
+		<input type="text" v-model='message'>
+	</div>
+	<script type="text/javascript">
+		Vue.component('t-text',{
+			props:['message'],
+			template:`<input type="text" @input="wheninput">`,
+			methods:{
+				wheninput:function(e){
+					console.log(e.data)
+					this.$emit('update:message',e.data)
+				}
+			}			
+		})
+		const app = new Vue({
+			el:'#app',
+			data:{
+				message:'default'
+			},
+			methods:{
+				iheard:function(e){
+					console.log(e)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

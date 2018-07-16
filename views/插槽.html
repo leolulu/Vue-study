@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<cacao>中间</cacao>
+	</div>
+	<script type="text/javascript">
+		Vue.component('cacao',{
+			template:`
+			<div>
+				<p>之前</p>
+				<slot></slot>
+				<p>之后</p>
+			</div>
+			`
+		})
+		const app = new Vue({
+			el:'#app'
+		})
+	</script>
+</body>
+</html>
