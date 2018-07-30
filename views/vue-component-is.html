@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{ mycomp }}</p>
+		<component :id="mycomp"></component>
+	</div>
+	<script type="text/javascript">
+		Vue.component('comp-a',{
+			template:`<h1>compA</h1>`
+		})
+		Vue.component('comp-b',{
+			template:`<h1>compB</h1>`
+		})
+
+		const app = new Vue({
+			el:'#app',
+			data:{
+				mycomp:'comp-a'
+			}
+		})
+	</script>
+</body>
+</html>

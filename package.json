@@ -11,8 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "npm": "^6.2.0",
+<<<<<<< HEAD
     "vue": "^2.5.16",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1"
+=======
+    "vue": "^2.5.16"
+>>>>>>> 87b8b4285068642d8038bd09bc244aecbcd0cfd1
   }
 }
