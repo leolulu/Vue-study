@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<thecomp @upup='fatherfunc'></thecomp>
+		<p>{{fatherstr}}</p>
+	</div>
+
+	<script type="text/javascript">
+		Vue.component('thecomp',{
+			template:`<h1 @click='sonfunc'>呵呵</h1>`,
+			methods:{
+				sonfunc:function(){
+					this.$emit('upup','go up')
+				}
+			}
+		})
+
+		const app = new Vue({
+			el:'#app',
+			data:{
+				fatherstr:'default'
+			},
+			methods:{
+				fatherfunc:function(vdata){
+					console.log(vdata)
+					this.fatherstr = vdata
+				}
+			}
+		})
+	</script>
+</body>
+</html>

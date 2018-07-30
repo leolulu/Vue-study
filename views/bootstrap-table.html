@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<!-- 引入bootstrap样式 -->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 引入bootstrap-table样式 -->
+	<link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+
+	<!-- jquery -->
+	<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<!-- bootstrap-table.min.js -->
+	<script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+	<!-- 引入中文语言包 -->
+	<script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+	<!-- 引入导出插件 -->
+	<script src="../lib/bootstrap-table-export.js"></script>
+	<script src="../lib/tableExport.js"></script>
+	<script src="../lib/FileSaver.min.js"></script>
+	<script src="../lib/xlsx.core.min.js"></script>
+</head>
+<body>
+	<h1>table</h1>
+	<table id="table"></table>
+</body>
+<script type="text/javascript">
+	$('#table').bootstrapTable({
+		method:'get',
+		url:'../resources/alotdata.json',
+		striped:true,
+		pagination:true,
+		pageList:[1,2,5,10,20,'ALL'],
+		pageSize:3,
+		search:true,
+		showExport:true,
+		exportDataType:'all',
+		showToggle:true,
+		showColumns:true,
+		showRefresh:true,
+		columns: [
+			{checkbox:true},
+			{field: 'ID',title: 'ID'},
+			{field: 'NAME',title: '姓名'},
+			{field: 'YW_TYPE_NAME',title: '业务大类'},
+			{field: 'YW_1ST_TYPE',title: '业务一类'},
+			{field: 'YW_2ND_TYPE',title: '业务二类'}
+    	]
+	})
+</script>
+</html>

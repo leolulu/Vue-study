@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-on:click='readdata' class='btn btn-default'>{{localdata}}</h1>
+        <div v-for='i in localdata'>
+            <span>111</span>
+            <span>{{i.id}}</span>
+            <span>{{i.url}}</span>
+            <span>{{i.title}}</span>
+            
+        </div>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                localdata:{}
+                },
+            methods:{
+                readdata:function () {
+                    this.$http.get('../resources/alotdata.json').then(function(result){
+                        console.log(result.body)
+                        this.localdata = result.body
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
