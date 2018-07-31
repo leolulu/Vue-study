@@ -11,7 +11,7 @@
     </head>
     <body>
         <div id="app">
-            <router-link to="{name:'user',params:{userId:123}}">User</router-link>
+            <router-link :to="{name:'user',params:{userId:123}}">User</router-link>
             <router-view></router-view>
         </div>
         <script>
@@ -20,7 +20,14 @@
             }
             const router = new VueRouter({
                 routes: [
-                    {path: '/user/:userId',name:'user', component: tpl1}
+                    {
+                        path:'/tiao',redirect:{name:'user'}
+                    },
+                    {
+                        path: '/user/:userId',
+                        name: 'user',
+                        component: tpl1
+                    }
                 ]
             })
             const app = new Vue({

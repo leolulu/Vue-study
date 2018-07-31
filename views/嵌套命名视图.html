@@ -6,45 +6,45 @@
         <script src="../node_modules/vue/dist/vue.js"></script>
         <script src="../node_modules/vue-router/dist/vue-router.js"></script>
         <style>
-            .router-link-active{
-                color:green;
-                font-size:20px;
+            .router-link-active {
+                color: green;
+                font-size: 20px;
             }
         </style>
     </head>
     <body>
         <div id="app">
-            <router-link to="/settings/default">settings</router-link>
+            <router-link to="/settings">settings</router-link>
             <router-view></router-view>
         </div>
         <template id="UserSettings">
             <div>
                 <h1>UserSettings</h1>
-                <router-link to="emails">emails</router-link>
-                <router-link to="profile">profile</router-link>
+                <router-link to="/settings/emails">emails</router-link>
+                <router-link to="/settings/profile">profile</router-link>
                 <router-view></router-view>
                 <router-view name="secondw"></router-view>
             </div>
         </template>
         <script>
             let UserSettings = {
-                template:'#UserSettings'
+                template: '#UserSettings'
             }
             const router = new VueRouter({
-                routes:[
+                routes: [
                     {
-                        path:'/settings/:type',
-                        component:UserSettings,
-                        children:[
+                        path: '/settings',
+                        component: UserSettings,
+                        children: [
                             {
-                                path:'emails',
-                                component:{template:`<h3>UserEmailsSubscriptions</h3>`}
+                                path: 'emails',
+                                component: {template: `<h3>UserEmailsSubscriptions</h3>`}
                             },
                             {
-                                path:'profile',
-                                components:{
-                                    default:{template:`<h3>UserProfile</h3>`},
-                                    secondw:{template:`<h3>UserProfilePreview</h3>`}
+                                path: 'profile',
+                                components: {
+                                    default: {template: `<h3>UserProfile</h3>`},
+                                    secondw: {template: `<h3>UserProfilePreview</h3>`}
                                 }
                             }
                         ]
@@ -53,7 +53,7 @@
                 ]
             })
             const app = new Vue({
-                el:'#app',
+                el: '#app',
                 router
             })
         </script>
