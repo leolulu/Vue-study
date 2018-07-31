@@ -15,8 +15,8 @@
 
 	<template id="tpl1">
 		<div>
-		<h1>User: {{ $route.params.id }}</h1>
-		<router-view></router-view>
+			<h1>User: {{ $route.params.id }}</h1>
+			<router-view></router-view>
 		</div>
 	</template>
 
@@ -24,16 +24,17 @@
 
 		const router =  new VueRouter({
 			routes : [
-			{ path:'/user/:id',
-			component: {template:'#tpl1'},
-			children:[
-				{path:'profile',component:{template:`<h4>profile</h4>`}},
-				{path:'posts',component:{template:`<h4>posts</h4>`}},
-				{path:'',component:{template:`<h4>空</h4>`}}
+			{
+				path:'/user/:id',
+				component: {template:'#tpl1'},
+				children:[
+					{path:'profile',component:{template:`<h4>profile</h4>`}},
+					{path:'posts',component:{template:`<h4>posts</h4>`}},
+					{path:'',component:{template:`<h4>空</h4>`}}
+				]
+			}
 			]
-		}
-		]
-	})
+		})
 		const vm = new Vue({
 			el:"#app",
 			router

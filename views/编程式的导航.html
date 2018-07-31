@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编程式的导航</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+	<script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p><input type="text" v-model='url'>{{url}}</p>
+		<router-link to='/change'>router-link</router-link>
+		<router-view :url='url'></router-view>
+	</div>
+	<script type="text/javascript">
+		const router = new VueRouter({
+			routes:[
+			{path:'/change/:whatever',component:{
+				props:['url'],
+				template:`
+				<div>
+					<h1 @click='showroute'>{{ this.$route.fullPath }}</h1>
+					<h1 @click='pushh'>{{url}}</h1>
+				</div>
+				`,
+				methods:{
+					showroute (){
+						console.log(this.$route)
+					},
+					pushh (){
+						// router.push({path: this.url})
+						router.push({path: this.url, query:{plan:'eacthing'}})
+						// router.push({name: 'change', params:{num:123}})
+					}
+				}
+			}
+		}
+		]
+	})
+		const vm = new Vue({
+			el:'#app',
+			router,
+			data:{
+				url:''
+			}
+		})
+	</script>
+</body>
+</html>
