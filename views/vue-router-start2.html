@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>router</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+	<script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+		<router-link to='/temp1'>连接1</router-link>
+		<router-view></router-view>
+		<router-view></router-view>
+		<router-view></router-view>
+	</div>
+	<template id="tpl1">
+		<p><button @click='upup'>点击按钮{{ times }}次</button></p>
+	</template>
+	<template id='tpl2'></template>
+	<script type="text/javascript">
+
+		var comp1 = {
+			template:'#tpl1',
+			data:function(){
+				return {
+					times:0
+				}
+			},
+			methods:{
+				upup (){
+					this.times += 1
+				}
+			}
+		}
+
+		const router = new VueRouter({
+			routes:[
+			{ path:'/temp1',component:comp1 }
+			]
+		})
+
+		const app = new Vue({
+			el:'#app',
+			router
+		})
+	</script>
+</body>
+</html>
