@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+	<script src="../node_modules/axios/dist/axios.js"></script>
+	<style type="text/css">
+		#app{
+			border:1px dotted green;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click='myfetch'>提取数据</button>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript">
+		const app = new Vue({
+			el:'#app',
+			methods:{
+				myfetch (){
+					axios.get('http://10.99.10.52:8080/getUser?custid=1')
+					.then(function(response){
+						console.response
+					})
+					.catch(function(error){
+						error
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

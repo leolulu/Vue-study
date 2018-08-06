@@ -1,22 +1,31 @@
 {
   "name": "Vue-study",
   "version": "1.0.0",
-  "description": "",
+  "description": "[toc]\r ## 基础使用方法\r 1. `npm install vue`\r 2. 引包（用script标签）\r 3. `new Vue`得到Vue实例\r 4. \r ```html\r <div id=\"app\">\r \t\t<p>{{message}}</p>\r \t\t<!-- {{ }} Vue会把该语法解析渲染 \r \t\t绑定的数据成员必须显式地初始化到data选项中 -->\r </div>",
   "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "npm": "^6.2.0",
+    "vue": "^2.5.16",
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leolulu/Vue-study.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "npm": "^6.2.0",
-<<<<<<< HEAD
-    "vue": "^2.5.16",
-    "vue-resource": "^1.5.1",
-    "vue-router": "^3.0.1"
-=======
-    "vue": "^2.5.16"
->>>>>>> 87b8b4285068642d8038bd09bc244aecbcd0cfd1
-  }
+  "bugs": {
+    "url": "https://github.com/leolulu/Vue-study/issues"
+  },
+  "homepage": "https://github.com/leolulu/Vue-study#readme"
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+	<script src="../node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click='tofetch'>取数据</button>
+		<p>{{thedata}}</p>
+	</div>
+	<script type="text/javascript">
+		const app = new Vue({
+			el:'#app',
+			data:{
+				thedata:''
+			},
+			methods:{
+				tofetch (){
+					axios.get('../resources/alotdata.json')
+					.then(function(response){
+						console.log(response)
+					})
+					.catch(function(error){
+						console.log(error)
+					})
+					.then(function(){
+						console.log('完成了')
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>
