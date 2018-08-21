@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+	<script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<div id="app">
+		<button type="button" class="btn btn-primary" @click='getdata'>button</button>
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				msg:'123'
+
+			},
+			methods:{
+				getdata(){
+					this.$http.get('http://10.99.10.52:8080/api/getUser?custid=3').then(res=> console.log(res))
+				}
+			}
+		})
+	</script>
+</body>
+</html>  
